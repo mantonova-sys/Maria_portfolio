@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maria Antonova | Finance & Innovation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a2332;
+            --secondary: #f4f1ea;
+            --accent: #c9a961;
+            --text: #2d3748;
+            --text-light: #718096;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            color: var(--text);
+            background: var(--secondary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(244, 241, 234, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(26, 35, 50, 0.1);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary) 0%, #2d3e50 100%);
+            clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+            opacity: 0.05;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-image-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 3/4;
+            border: 2px solid var(--accent);
+            padding: 1rem;
+            background: white;
+            margin-left: auto;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-image-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--secondary) 0%, #e8e5da 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: var(--accent);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 7rem);
+            color: var(--primary);
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+        }
+
+        .hero-tagline {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: 2px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: var(--primary);
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .btn-accent {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .btn-accent:hover {
+            background: #b8944d;
+            border-color: #b8944d;
+            color: white;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 8rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: var(--accent);
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            font-weight: 300;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.9;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border: 1px solid rgba(26, 35, 50, 0.1);
+        }
+
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Experience Section */
+        .experience-grid {
+            display: grid;
+            gap: 3rem;
+        }
+
+        .experience-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 3rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(26, 35, 50, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .experience-item:nth-child(2) { animation-delay: 0.1s; }
+        .experience-item:nth-child(3) { animation-delay: 0.2s; }
+        .experience-item:nth-child(4) { animation-delay: 0.3s; }
+
+        .experience-date {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .experience-details h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-company {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .experience-details ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .experience-details li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+            color: var(--text);
+        }
+
+        .experience-details li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        /* Recommendations Section */
+        .recommendations {
+            background: white;
+        }
+
+        .rec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .rec-card {
+            padding: 2.5rem;
+            background: var(--secondary);
+            border-left: 4px solid var(--accent);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .rec-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .quote-icon {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            color: var(--accent);
+            opacity: 0.3;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .rec-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: var(--text);
+        }
+
+        .rec-author {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .rec-title {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Poetry Section */
+        .poetry {
+            background: var(--primary);
+            color: var(--secondary);
+        }
+
+        .poetry .section-number {
+            color: var(--accent);
+        }
+
+        .poetry .section-title {
+            color: var(--secondary);
+        }
+
+        .poetry .section-subtitle {
+            color: rgba(244, 241, 234, 0.7);
+        }
+
+        .poems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 4rem;
+        }
+
+        .poem {
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(244, 241, 234, 0.1);
+        }
+
+        .poem h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--accent);
+            text-align: center;
+        }
+
+        .poem-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            line-height: 2;
+            white-space: pre-line;
+            color: var(--secondary);
+        }
+
+        .poem-note {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(244, 241, 234, 0.2);
+            font-size: 0.9rem;
+            color: rgba(244, 241, 234, 0.6);
+            font-style: italic;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            gap: 3rem;
+        }
+
+        .project-item {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+            padding: 3rem;
+            background: white;
+            border: 1px solid rgba(26, 35, 50, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project-item:hover {
+            transform: translateX(10px);
+        }
+
+        .project-meta {
+            text-align: right;
+        }
+
+        .project-label {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            color: var(--accent);
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .project-date {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .project-details h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .project-details p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+        }
+
+        .project-link:hover {
+            transform: translateX(5px);
+        }
+
+        .project-image {
+            width: 100%;
+            height: auto;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(26, 35, 50, 0.1);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            padding: 2rem;
+            background: white;
+            border-top: 3px solid var(--accent);
+        }
+
+        .skill-category h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            color: var(--text);
+            border-bottom: 1px solid rgba(26, 35, 50, 0.05);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: white;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            background: var(--primary);
+            color: var(--secondary);
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.7;
+        }
+
+        /* Video Container */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            margin: 2rem 0;
+            background: rgba(0,0,0,0.1);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero h1 {
+                font-size: 4rem;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-image-container {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .about-content,
+            .experience-item,
+            .project-item {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .project-meta {
+                text-align: left;
+            }
+
+            .poems-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                display: none;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            section {
+                padding: 4rem 0;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">MA</a>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#poetry">Poetry</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-subtitle">Finance • Innovation • Poetry</div>
+                    <h1>Maria<br>Antonova</h1>
+                    <p class="hero-tagline">As a Financial Analyst Intern at MarsCharge, I conduct market research on alternative energy solutions and analyze financial liquidity to support ongoing acquisition projects and business planning. Beyond my internship, I was selected as one of 120 students globally for KPMG's Global Advantage Program in Lisbon, Portugal to advance data and financial literacy.</p>
+                    <p class="hero-tagline">I spend my free time skiing and running half marathons. A personal favorite of mine has been in Yosemite and I am currently training for Big Sur!</p>
+                    <div class="hero-links">
+                        <a href="#contact" class="btn btn-accent">Get in Touch</a>
+                        <a href="#experience" class="btn">View Experience</a>
+                    </div>
+                </div>
+                <div class="hero-image-container">
+                    <img src="headshot.jpg" alt="Maria Antonova" class="hero-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">01 / ABOUT</div>
+                <h2 class="section-title">Multi-lingual Women's Tennis Student-Athlete</h2>
+                <p class="section-subtitle">Finance analyst, entrepreneur, poet, athlete — building at the intersection of innovation and analysis</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Currently pursuing a Bachelor of Science in Commerce at Santa Clara University's Leavey School of Business, I specialize in Accounting & Information Systems with a minor in French. My academic journey is complemented by hands-on experience in financial analysis, market research, and strategic advisory.</p>
+                    <p>Beyond finance, I serve as Industry Liaison on the Ciocca Center Student Advisory Board, fostering entrepreneurship and innovation across campus.</p>
+                    <p>Fluent in Russian, French, and English with intermediate proficiency in Italian and Spanish, I love languages for their way of bridging perspectives and uniting cultures.</p>
+                </div>
+                <div class="stats">
+                    <div class="stat-item fade-in">
+                        <span class="stat-number">5</span>
+                        <div class="stat-label">Languages</div>
+                    </div>
+                    <div class="stat-item fade-in">
+                        <span class="stat-number">3</span>
+                        <div class="stat-label">Leadership Positions</div>
+                    </div>
+                    <div class="stat-item fade-in">
+                        <span class="stat-number">6</span>
+                        <div class="stat-label">Clubs</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">02 / EXPERIENCE</div>
+                <h2 class="section-title">Professional Journey</h2>
+            </div>
+            <div class="experience-grid">
+                <div class="experience-item">
+                    <div class="experience-date">Dec 2025 - Present</div>
+                    <div class="experience-details">
+                        <h3>Financial Analyst Intern</h3>
+                        <div class="experience-company">MarsCharge</div>
+                        <ul>
+                            <li>Conducting market research on viable alternative energy solutions and presenting strategic insights to executives in support of research and exploration initiatives</li>
+                            <li>Analyzing financial liquidity and balance sheets in Excel to support M&A transactions while expanding into new industries and accelerating technology development initiatives</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-date">Aug 2025 - Dec 2025</div>
+                    <div class="experience-details">
+                        <h3>Risk Strategy Intern</h3>
+                        <div class="experience-company">Santa Clara Startup Advising (BEACH Program)</div>
+                        <ul>
+                            <li>Performed data-driven advisory services to optimize business operations, budgeting, and regulatory compliance for Silicon Valley startups</li>
+                            <li>Formulated a business plan to submit for Federal funding, revenue modeling and compliance with legal 501(c)(3) requirements using Power BI and Tableau</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-date">Sep 2024 - Jun 2025</div>
+                    <div class="experience-details">
+                        <h3>Junior Analyst</h3>
+                        <div class="experience-company">WindRush Capital</div>
+                        <ul>
+                            <li>Executed market, operational, and financial risk analyses for Clean Tech infrastructure acquisition targets</li>
+                            <li>Built Excel-based DCF's and regression analysis incorporating IRR, NPV and relevant market performance</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-date">Sep 2024 - Present</div>
+                    <div class="experience-details">
+                        <h3>French 194 Peer Educator</h3>
+                        <div class="experience-company">Santa Clara University</div>
+                        <ul>
+                            <li>Facilitate class discussions of 30 students to improve concept knowledge, grammar and pronunciation</li>
+                            <li>Host office hours to provide individualized academic support</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-date">Aug 2024 - Sep 2025</div>
+                    <div class="experience-details">
+                        <h3>Tennis Professional</h3>
+                        <div class="experience-company">Bay Club - Santa Clara, CA</div>
+                        <ul>
+                            <li>Lead back-to-back group sessions that served to build strength, endurance and confidence for players</li>
+                            <li>Coordinate, schedule and personalize lessons to fit groups of 10 people of varying athletic abilities</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-date">Current</div>
+                    <div class="experience-details">
+                        <h3>Industry Liaison</h3>
+                        <div class="experience-company">Ciocca Center for Innovation and Entrepreneurship, Santa Clara University</div>
+                        <ul>
+                            <li>Serve on the Student Advisory Board providing governance and feedback to ensure programs remain relevant and useful to students campus-wide</li>
+                            <li>Foster interdisciplinary entrepreneurship mindset and organize workshops introducing students to design thinking</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="recommendations">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">03 / RECOMMENDATIONS</div>
+                <h2 class="section-title">What Others Say</h2>
+            </div>
+            <div class="rec-grid">
+                <div class="rec-card fade-in">
+                    <div class="quote-icon">"</div>
+                    <p class="rec-text">She is incredibly outgoing and one of the most dedicated hard workers I've had the opportunity to guide. Maria impressed me with her exceptional ability to keep the client focused and engaged on specific projects. She was consistently creative, showing initiative in her research and bringing innovative solutions to every challenge.</p>
+                    <div class="rec-author">Susan Papier</div>
+                    <div class="rec-title">Senior Managing Counsel at Oracle</div>
+                </div>
+                <div class="rec-card fade-in">
+                    <div class="quote-icon">"</div>
+                    <p class="rec-text">Since then, I've observed her grow as a person and professional through her desire to make a positive impact on her community. She demonstrated a genuine passion for learning and a thoughtful approach to complex tasks. Her strong work ethic is clear from her leadership roles and academic pursuits.</p>
+                    <div class="rec-author">Ben Burford</div>
+                    <div class="rec-title">Investor - Father, founder, engineer, entrepreneur</div>
+                </div>
+                <div class="rec-card fade-in">
+                    <div class="quote-icon">"</div>
+                    <p class="rec-text">Maria showed up well. She was prepared for every meeting, she drove agendas and timelines with our teams, and she was open to feedback as we navigated the project. I really appreciated how coachable she was and her willingness and desire to deliver high quality work. If you are a hiring manager reading this - hire her.</p>
+                    <div class="rec-author">Patrick Aitken</div>
+                    <div class="rec-title">VP Revenue Operations | CRO Partner</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="poetry" id="poetry">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">04 / POETRY</div>
+                <h2 class="section-title">Creative Expression</h2>
+                <p class="section-subtitle">Where analytical thinking meets artistic voice</p>
+            </div>
+            <div class="poems-grid">
+                <div class="poem fade-in">
+                    <h3>Blank Slate</h3>
+                    <div class="poem-text">Losing sooner losing faster
+At first your thoughts called you their master
+And lifelessly you shape the plaster
+That lines the coating of your grave
+
+The time once yours is now forgotten
+Once offered forth like fruit to kings
+
+Your health in locks, your youth a goner
+Just wait till old fat lady sings
+
+Remember when? You do? ..or don't you?
+Because it seems I haven't seen you since
+
+So keep on staring at the wall behind me
+And then complain about the pain life brings</div>
+                </div>
+                <div class="poem fade-in">
+                    <h3>A Place to Call</h3>
+                    <div class="poem-text">When my phone rings on a midnight drive
+And I check to see your name
+I don't think of the pain from past regrets
+Or the things I haven't done
+And the one that said, 'How could you?'
+Not when there's a time to call
+I pull over to the side
+To give you all of my attention
+I turn up the sound
+And plant my feet on the ground
+I'm ready to be with you</div>
+                    <div class="poem-note">Inspired by Robert Frost's "A Time to Talk" — exploring the modern parallels of presence and connection</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">05 / PROJECTS & ACHIEVEMENTS</div>
+                <h2 class="section-title">Milestones</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-item fade-in">
+                    <div class="project-meta">
+                        <div class="project-label">Global Recognition</div>
+                        <div class="project-date">June 2025</div>
+                    </div>
+                    <div class="project-details">
+                        <h3>KPMG Global Advantage Program</h3>
+                        <p>Recruited as 1 of 120 students globally for an intensive international program focused on leadership, AI literacy, and commercial problem-solving based in Lisbon, Portugal.</p>
+                        <p>Partnered with international teams to analyze client transactional needs and present operational risks across business units while incorporating senior feedback.</p>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/C7ymh9VO_W0" allowfullscreen></iframe>
+                        </div>
+                        <a href="https://www.youtube.com/watch?v=C7ymh9VO_W0" target="_blank" class="project-link">Watch Video →</a>
+                    </div>
+                </div>
+
+                <div class="project-item fade-in">
+                    <div class="project-meta">
+                        <div class="project-label">Athletic Achievement</div>
+                        <div class="project-date">August 2023</div>
+                    </div>
+                    <div class="project-details">
+                        <h3>NCAA Division I Women's Tennis</h3>
+                        <p>State champion from Florida joining Santa Clara University women's tennis program.</p>
+                        <img src="tennis-action.jpg" alt="Maria Antonova playing tennis for Santa Clara University" class="project-image">
+                        <a href="https://santaclarabroncos.com/news/2023/8/29/womens-tennis-womens-tennis-signs-state-champion-from-florida.aspx" target="_blank" class="project-link">Read Article →</a>
+                    </div>
+                </div>
+
+                <div class="project-item fade-in">
+                    <div class="project-meta">
+                        <div class="project-label">Elite Training</div>
+                        <div class="project-date">January 2025</div>
+                    </div>
+                    <div class="project-details">
+                        <h3>Finance Technology Career Accelerator Program</h3>
+                        <p>Selected as 1 of 12 West Coast students for an 8-week program focused on financial analysis, modeling, and applied machine learning.</p>
+                        <p>Evaluated startup marketing and revenue performance using Power BI and regression analysis, adjusting assumptions to support changing business objectives.</p>
+                    </div>
+                </div>
+
+                <div class="project-item fade-in">
+                    <div class="project-meta">
+                        <div class="project-label">Community Impact</div>
+                        <div class="project-date">August 2025</div>
+                    </div>
+                    <div class="project-details">
+                        <h3>Knotty Ladies</h3>
+                        <p>Supported distribution of 17,000 handmade caps for cancer patients across Southern California.</p>
+                        <p>Collaborated with South Shores Church volunteers to conduct community outreach and provide comfort to individuals undergoing chemotherapy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">06 / CAPABILITIES</div>
+                <h2 class="section-title">Skills & Certifications</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category fade-in">
+                    <h3>Technical</h3>
+                    <ul class="skill-list">
+                        <li>Financial Modeling (DCF, NPV, IRR)</li>
+                        <li>Excel (Advanced)</li>
+                        <li>Power BI & Tableau</li>
+                        <li>SQL (In Progress)</li>
+                        <li>Python (Proficient)</li>
+                        <li>Regression Analysis</li>
+                    </ul>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Certifications</h3>
+                    <ul class="skill-list">
+                        <li>Wall Street Prep Excel Course</li>
+                        <li>Blockchain Fundamentals</li>
+                        <li>Eastdil Secured Finance Training</li>
+                    </ul>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Languages</h3>
+                    <ul class="skill-list">
+                        <li>English (Native)</li>
+                        <li>Russian (Native)</li>
+                        <li>French (Fluent)</li>
+                        <li>Italian (Intermediate)</li>
+                        <li>Spanish (Intermediate)</li>
+                    </ul>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3>Coursework</h3>
+                    <ul class="skill-list">
+                        <li>International Economics (A)</li>
+                        <li>Accounting Data Analysis (A)</li>
+                        <li>Financial Accounting (A)</li>
+                        <li>Managerial Accounting (A)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">07 / CONNECT</div>
+                <h2 class="section-title">Let's Talk</h2>
+                <p class="section-subtitle">Open to opportunities in finance, consulting, and entrepreneurship</p>
+            </div>
+            <div class="contact-links">
+                <a href="mailto:antonovamasha16@gmail.com" class="contact-link">
+                    <div class="contact-icon">✉</div>
+                    <div class="contact-label">Email</div>
+                </a>
+                <a href="https://www.linkedin.com/in/masha-antonova" target="_blank" class="contact-link">
+                    <div class="contact-icon">in</div>
+                    <div class="contact-label">LinkedIn</div>
+                </a>
+                <a href="tel:+19493049512" class="contact-link">
+                    <div class="contact-icon">☎</div>
+                    <div class="contact-label">Phone</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Maria Antonova. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade-in on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Nav background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(244, 241, 234, 0.98)';
+                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.background = 'rgba(244, 241, 234, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
